@@ -97,6 +97,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
@@ -104,6 +105,8 @@ template<typename T = uint32_t>
 void createOddMagicSquare(vector<vector<T>>& square) noexcept(false){
 	const size_t	square_size(square.size());
 	const T			casted_size(static_cast<T>(square_size));
+
+	assert(square_size % 2 == 1);
 
 	size_t	column_index(square_size - 1);
 	size_t	row_index(square_size / 2);
@@ -125,6 +128,9 @@ void createOddMagicSquare(vector<vector<T>>& square) noexcept(false){
 
 template<typename T = uint32_t>
 void createDoublyEvenMagicSquare(vector<vector<T>>& square) noexcept(false){
+	const size_t square_size(square.size());
+	assert(square_size % 4 == 0);
+
 	//TODO:
 	cerr << "Sorry, The Implementation of Magic Square Consrtuction for Doubly Even Order is NOT Done yet..." << endl;
 	return;
@@ -132,8 +138,11 @@ void createDoublyEvenMagicSquare(vector<vector<T>>& square) noexcept(false){
 
 template<typename T = uint32_t>
 void createSignlyEvenMagicSquare(vector<vector<T>>& square) noexcept(false){
+	const size_t square_size(square.size());
+	assert(square_size % 4 == 2);
+
 	//TODO: LUX Method
-	cerr << "Sorry, The Implementation of Magic Square Consrtuction for Doubly Even Order is NOT Done yet..." << endl;
+	cerr << "Sorry, The Implementation of Magic Square Consrtuction for Singly Even Order is NOT Done yet..." << endl;
 	return;
 }
 
@@ -185,6 +194,7 @@ const int main(const int argc, const char* const* const argv){
 
 	createMagicSquare(magic_square);
 
+	//Calculation Maximum Number od Digits to Display
 	size_t max_digit = static_cast<size_t>(floor(log10(square_size * square_size) + 1));
 
 	cout << "Result:" << endl;
